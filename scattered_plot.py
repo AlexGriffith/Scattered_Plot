@@ -3,8 +3,6 @@ Project: Scattered Plot
 Author: Alex Griffith
 Date: Jan. 13th, 2022
 Description: A small gui for making 3d graphs of book data, on variable axes.
-
-TODO:   Add a window for inserting new books.
 """
 
 import plotly.express as px

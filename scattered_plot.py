@@ -25,18 +25,8 @@ class Graphical_UI(tk.Frame):
         self.frame = tk.Frame(root, padx=10, pady=10)
         self.top = None
 
-        AXES = [
-            "Low Magic - High Magic",
-            "Low Fantasy - High Fantasy",
-            "Dark - Bright",
-            "Grim - Noble",
-            "Page Count",
-            "Word Count",
-            "Sad - Happy",
-            "Calm - Passionate",
-            "Goodreads",
-            "Series"
-        ]
+        df = pd.read_csv('dataset/books.csv')
+        AXES = list(df.columns)
 
         self.axis_one = tk.StringVar(master)
         self.axis_one.set(AXES[0])

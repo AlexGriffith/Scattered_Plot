@@ -1,22 +1,34 @@
-Book,Series,Author,Low Magic - High Magic,Low Fantasy - High Fantasy,Grim - Noble,Dark - Bright,Sad - Happy,Calm - Passionate,Word Count,Page Count,Goodreads
-Storm Front,The Dresden Files,Jim Butcher,8.0,2.0,7.0,6.0,6.5,6.0,86961,322,3.98
-Fool Moon,The Dresden Files,Jim Butcher,8.1,2.2,7.0,6.0,6.8,6.0,102149,352,3.99
-Peace Talks,The Dresden Files,Jim Butcher,8.5,3.5,5.0,4.0,6.0,5.5,112240,340,4.21
-Battle Ground,The Dresden Files,Jim Butcher,9.5,3.5,4.5,3.5,2.0,7.5,134265,432,4.39
-The Black Company,The Chronicles of the Black Company,Glen Cook,4.5,6.0,3.0,3.0,5.5,4.0,80000,319,3.9
-Unsouled,Cradle,Will Wight,7.5,7.0,9.5,8.0,7.5,6.0,89097,292,4.16
-Gardens of the Moon,Malazan Book of the Fallen,Steven Erikson,6.5,7.8,7.0,6.0,6.0,4.5,209000,712,3.89
-Deadhouse Gates,Malazan Book of the Fallen,Steven Erikson,6.2,8.0,7.2,5.9,6.0,4.6,272000,943,4.22
-The Final Empire,Mistborn,Brandon Sanderson,7.0,7.5,7.8,4.0,6.5,6.5,208253,541,4.44
-The Way of Kings,The Stormlight Archive,Brandon Sanderson,6.7,8.5,7.8,6.8,6.2,7.4,383389,1007,4.61
-Harry Potter and the Philosopher's Stone,Harry Potter,J.K. Rowling,9.0,2.5,9.5,8.5,6.0,4.0,76944,223,4.47
-The Name of the Wind,The Kingkiller Chronicles,Patrick Rothfuss,7.2,7.5,6.5,4.5,7.5,7.0,259000,662,4.51
-Blood Song,The Raven's Shadow,Anthony Ryan,3.5,6.2,7.1,5.5,7.5,5.5,200825,591,4.38
-Drawing of the Three,The Dark Tower,Stephen King,3.5,3.6,3.7,3.9,4.5,3.2,125948,400,4.21
-The Gunslinger,The Dark Tower,Stephen King,3.0,3.5,4.0,3.5,5.3,2.3,63800,300,3.94
-American Gods,American Gods,Neil Gaiman,4.0,1.8,5.0,4.6,5.5,1.8,188623,465,4.1
-Stardust,Stardust,Neil Gaiman,4.5,6.2,8.6,8.4,8.0,3.0,63317,256,4.09
-Red Rising,Red Rising,Pierce Brown,0.0,7.3,4.2,4.1,5.8,6.8,140940,382,4.23
-Senlin Ascends,The Books of Babel,Josiah Bancroft,2.1,5.5,5.1,3.6,3.9,5.7,131372,448,4.16
-The Silver Ship and the Sea,Fremont's Children,Brenda Cooper,0.0,6.0,7.0,5.5,6.0,6.0,100000,400,3.71
-Harry Potter and The Chamber of Secrets,Harry Potter,J.K. Rowling,8.0,2.5,8.5,9.5,9.0,8.0,85141,251,4.43
+Book,Series,Author,Low Magic - High Magic,Low Fantasy - High Fantasy,Grim - Noble,Dark - Bright,Sad - Happy,Calm - Passionate,Word Count,Page Count,Goodreads,Added By
+Storm Front,The Dresden Files,Jim Butcher,8,2,7,6,6.5,6,86961,322,3.98,Alex Griffith
+Fool Moon,The Dresden Files,Jim Butcher,8.1,2.2,7,6,6.8,6,102149,352,3.99,Alex Griffith
+Peace Talks,The Dresden Files,Jim Butcher,8.5,3.5,5,4,6,5.5,112240,340,4.21,Alex Griffith
+Battle Ground,The Dresden Files,Jim Butcher,9.5,3.5,4.5,3.5,2,7.5,134265,432,4.39,Alex Griffith
+The Black Company,The Chronicles of the Black Company,Glen Cook,4.5,6,3,3,5.5,4,80000,319,3.9,Alex Griffith
+Unsouled,Cradle,Will Wight,7.5,7,9.5,8,7.5,6,89097,292,4.16,Alex Griffith
+Gardens of the Moon,Malazan Book of the Fallen,Steven Erikson,6.5,7.8,7,6,6,4.5,209000,712,3.89,Alex Griffith
+Deadhouse Gates,Malazan Book of the Fallen,Steven Erikson,6.2,8,7.2,5.9,6,4.6,272000,943,4.22,Alex Griffith
+The Final Empire,Mistborn,Brandon Sanderson,7,7.5,7.8,4,6.5,6.5,208253,541,4.44,Alex Griffith
+The Way of Kings,The Stormlight Archive,Brandon Sanderson,6.7,8.5,7.8,6.8,6.2,7.4,383389,1007,4.61,Alex Griffith
+Harry Potter and the Philosopher's Stone,Harry Potter,J.K. Rowling,9,2.5,9.5,8.5,6,4,76944,223,4.47,Alex Griffith
+The Name of the Wind,The Kingkiller Chronicles,Patrick Rothfuss,7.2,7.5,6.5,4.5,7.5,7,259000,662,4.51,Alex Griffith
+Blood Song,The Raven's Shadow,Anthony Ryan,3.5,6.2,7.1,5.5,7.5,5.5,200825,591,4.38,Alex Griffith
+Drawing of the Three,The Dark Tower,Stephen King,3.5,3.6,3.7,3.9,4.5,3.2,125948,400,4.21,Alex Griffith
+The Gunslinger,The Dark Tower,Stephen King,3,3.5,4,3.5,5.3,2.3,63800,300,3.94,Alex Griffith
+American Gods,American Gods,Neil Gaiman,4,1.8,5,4.6,5.5,1.8,188623,465,4.1,Alex Griffith
+Stardust,Stardust,Neil Gaiman,4.5,6.2,8.6,8.4,8,3,63317,256,4.09,Alex Griffith
+Red Rising,Red Rising,Pierce Brown,0,7.3,4.2,4.1,5.8,6.8,140940,382,4.23,Alex Griffith
+Senlin Ascends,The Books of Babel,Josiah Bancroft,2.1,5.5,5.1,3.6,3.9,5.7,131372,448,4.16,Alex Griffith
+The Silver Ship and the Sea,Fremont's Children,Brenda Cooper,0,6,7,5.5,6,6,100000,400,3.71,Jenna Honsl
+Harry Potter and The Chamber of Secrets,Harry Potter,J.K. Rowling,8,2.5,8.5,9.5,9,8,85141,251,4.43,Alex Griffith
+Interview with the Vampire,The Vampire Chronicles,Anne Rice,1.5,2,4,5.5,3,7,86500,371,4,Kristen Merke
+Deadly Little Secret,Touch Series,Laurie Faria Stolarz,3,1,8.5,7.6,5.5,3.5,61250,252,3.86,Kristen Merke
+Like Water For Chocolate,Como agua par chocolat,Laura Esquival,2,2,9,6,6,4.4,61500,256,3.95,Kristen Merke
+Lullaby,Lullaby,Chuck Palahniuk,3,1,2.5,5.5,6.5,7,65000,260,3.73,Kristen Merke
+The Seven Deaths of Evelyn Hardcastle,Evelyn Hardcastle,Stuart Turton,3,3.5,6.7,3,4.8,4.4,132000,505,3.88,Kristen Merke
+Son of a Trickster,Trickster Series,Eden Robinson,4.5,2,7.4,5.5,4.5,6.3,84000,336,3.84,Kristen Merke
+Strange Practice,Dr. Greta Helsing Series,Vivian Shaw,4.5,3,9,5.9,7.3,5,96250,400,3.85,Kristen Merke
+This Dark Endeavor,Victor Frankenstien Series,Kenneth Oppel,1.8,2.9,2.3,4.3,4.3,5.2,80000,298,3.82,Kristen Merke
+The Forest of Hands and Teeth,The Forest of Hands and Teeth,Carrie Ryan,0,4.5,1.2,1.2,1.8,7.6,84000,310,3.6,Kristen Merke
+Damned,Damned Series,Chuck Palahniuk,3,6.4,3.2,0.75,4.8,4.78,64000,256,3.39,Kristen Merke
+Bioshock: Rapture,Bioshock,John Shirley,3.4,5,2.4,2.1,5,5,100000,432,4,Kristen Merke
+The Madman's Daughter,Madman's Daughter Series,Megan Shepard,1.5,4.3,9,2.87,6.7,5.4,98000,420,3.67,Kristen Merke

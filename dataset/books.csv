@@ -1,34 +1,55 @@
-Book,Series,Author,Low Magic - High Magic,Low Fantasy - High Fantasy,Grim - Noble,Dark - Bright,Sad - Happy,Calm - Passionate,Word Count,Page Count,Goodreads,Added By
-Storm Front,The Dresden Files,Jim Butcher,8,2,7,6,6.5,6,86961,322,3.98,Alex Griffith
-Fool Moon,The Dresden Files,Jim Butcher,8.1,2.2,7,6,6.8,6,102149,352,3.99,Alex Griffith
-Peace Talks,The Dresden Files,Jim Butcher,8.5,3.5,5,4,6,5.5,112240,340,4.21,Alex Griffith
-Battle Ground,The Dresden Files,Jim Butcher,9.5,3.5,4.5,3.5,2,7.5,134265,432,4.39,Alex Griffith
-The Black Company,The Chronicles of the Black Company,Glen Cook,4.5,6,3,3,5.5,4,80000,319,3.9,Alex Griffith
-Unsouled,Cradle,Will Wight,7.5,7,9.5,8,7.5,6,89097,292,4.16,Alex Griffith
-Gardens of the Moon,Malazan Book of the Fallen,Steven Erikson,6.5,7.8,7,6,6,4.5,209000,712,3.89,Alex Griffith
-Deadhouse Gates,Malazan Book of the Fallen,Steven Erikson,6.2,8,7.2,5.9,6,4.6,272000,943,4.22,Alex Griffith
-The Final Empire,Mistborn,Brandon Sanderson,7,7.5,7.8,4,6.5,6.5,208253,541,4.44,Alex Griffith
-The Way of Kings,The Stormlight Archive,Brandon Sanderson,6.7,8.5,7.8,6.8,6.2,7.4,383389,1007,4.61,Alex Griffith
-Harry Potter and the Philosopher's Stone,Harry Potter,J.K. Rowling,9,2.5,9.5,8.5,6,4,76944,223,4.47,Alex Griffith
-The Name of the Wind,The Kingkiller Chronicles,Patrick Rothfuss,7.2,7.5,6.5,4.5,7.5,7,259000,662,4.51,Alex Griffith
-Blood Song,The Raven's Shadow,Anthony Ryan,3.5,6.2,7.1,5.5,7.5,5.5,200825,591,4.38,Alex Griffith
-Drawing of the Three,The Dark Tower,Stephen King,3.5,3.6,3.7,3.9,4.5,3.2,125948,400,4.21,Alex Griffith
-The Gunslinger,The Dark Tower,Stephen King,3,3.5,4,3.5,5.3,2.3,63800,300,3.94,Alex Griffith
-American Gods,American Gods,Neil Gaiman,4,1.8,5,4.6,5.5,1.8,188623,465,4.1,Alex Griffith
-Stardust,Stardust,Neil Gaiman,4.5,6.2,8.6,8.4,8,3,63317,256,4.09,Alex Griffith
-Red Rising,Red Rising,Pierce Brown,0,7.3,4.2,4.1,5.8,6.8,140940,382,4.23,Alex Griffith
-Senlin Ascends,The Books of Babel,Josiah Bancroft,2.1,5.5,5.1,3.6,3.9,5.7,131372,448,4.16,Alex Griffith
-The Silver Ship and the Sea,Fremont's Children,Brenda Cooper,0,6,7,5.5,6,6,100000,400,3.71,Jenna Honsl
-Harry Potter and The Chamber of Secrets,Harry Potter,J.K. Rowling,8,2.5,8.5,9.5,9,8,85141,251,4.43,Alex Griffith
-Interview with the Vampire,The Vampire Chronicles,Anne Rice,1.5,2,4,5.5,3,7,86500,371,4,Kristen Merke
-Deadly Little Secret,Touch Series,Laurie Faria Stolarz,3,1,8.5,7.6,5.5,3.5,61250,252,3.86,Kristen Merke
-Like Water For Chocolate,Como agua par chocolat,Laura Esquival,2,2,9,6,6,4.4,61500,256,3.95,Kristen Merke
-Lullaby,Lullaby,Chuck Palahniuk,3,1,2.5,5.5,6.5,7,65000,260,3.73,Kristen Merke
-The Seven Deaths of Evelyn Hardcastle,Evelyn Hardcastle,Stuart Turton,3,3.5,6.7,3,4.8,4.4,132000,505,3.88,Kristen Merke
-Son of a Trickster,Trickster Series,Eden Robinson,4.5,2,7.4,5.5,4.5,6.3,84000,336,3.84,Kristen Merke
-Strange Practice,Dr. Greta Helsing Series,Vivian Shaw,4.5,3,9,5.9,7.3,5,96250,400,3.85,Kristen Merke
-This Dark Endeavor,Victor Frankenstien Series,Kenneth Oppel,1.8,2.9,2.3,4.3,4.3,5.2,80000,298,3.82,Kristen Merke
-The Forest of Hands and Teeth,The Forest of Hands and Teeth,Carrie Ryan,0,4.5,1.2,1.2,1.8,7.6,84000,310,3.6,Kristen Merke
-Damned,Damned Series,Chuck Palahniuk,3,6.4,3.2,0.75,4.8,4.78,64000,256,3.39,Kristen Merke
-Bioshock: Rapture,Bioshock,John Shirley,3.4,5,2.4,2.1,5,5,100000,432,4,Kristen Merke
-The Madman's Daughter,Madman's Daughter Series,Megan Shepard,1.5,4.3,9,2.87,6.7,5.4,98000,420,3.67,Kristen Merke
+Book,Series,Series Number,Author,Low Magic - High Magic,Low Fantasy - High Fantasy,Grim - Noble,Dark - Bright,Sad - Happy,Calm - Passionate,Word Count,Page Count,Goodreads,Added By
+Storm Front,The Dresden Files,1,Jim Butcher,8,2,7,6,6.5,6,86961,322,3.98,Alex Griffith
+Fool Moon,The Dresden Files,2,Jim Butcher,8.1,2.2,7,6,6.8,6,102149,352,3.99,Alex Griffith
+Peace Talks,The Dresden Files,16,Jim Butcher,8.5,3.5,5,4,6,5.5,112240,340,4.21,Alex Griffith
+Battle Ground,The Dresden Files,17,Jim Butcher,9.5,3.5,4.5,3.5,2,7.5,134265,432,4.39,Alex Griffith
+The Black Company,The Chronicles of the Black Company,1,Glen Cook,4.5,6,3,3,5.5,4,95381,319,3.9,Alex Griffith
+Unsouled,Cradle,1,Will Wight,7.5,7,9.5,8.5,7.5,6,89097,292,4.16,Alex Griffith
+Gardens of the Moon,Malazan Book of the Fallen,1,Steven Erikson,6.5,7.8,7,6,6,4.5,209000,712,3.89,Alex Griffith
+Deadhouse Gates,Malazan Book of the Fallen,2,Steven Erikson,6.2,8,7.2,5.9,6,4.6,272000,943,4.22,Alex Griffith
+The Final Empire,Mistborn,1,Brandon Sanderson,5.8,7.5,7.8,4,6.5,6.5,208253,541,4.44,Alex Griffith
+The Way of Kings,The Stormlight Archive,1,Brandon Sanderson,6.7,8.5,7,6.8,6.2,7.7,383389,1007,4.61,Alex Griffith
+Harry Potter and the Philosopher's Stone,Harry Potter,1,J.K. Rowling,9,2.3,9.5,8.5,6,4,76944,223,4.47,Alex Griffith
+The Name of the Wind,The Kingkiller Chronicles,1,Patrick Rothfuss,7.2,7.5,6.5,4.5,7.2,7.3,259000,662,4.51,Alex Griffith
+Blood Song,The Raven's Shadow,1,Anthony Ryan,3.5,6.2,7.1,5.5,7.5,5.5,200825,591,4.38,Alex Griffith
+Drawing of the Three,The Dark Tower,2,Stephen King,3.5,3.6,3.7,3.9,4.5,3.2,125948,400,4.21,Alex Griffith
+The Gunslinger,The Dark Tower,1,Stephen King,2,3.5,4,3.5,5.3,2.3,63800,300,3.94,Alex Griffith
+American Gods,American Gods,1,Neil Gaiman,4,1.8,5,4.6,5.5,1.8,188623,465,4.1,Alex Griffith
+Stardust,Stardust,1,Neil Gaiman,4.5,6.2,8.6,8.4,8,3,63317,256,4.09,Alex Griffith
+Red Rising,Red Rising,1,Pierce Brown,0,7.3,4.2,4.1,5.8,6.8,140940,382,4.23,Alex Griffith
+Senlin Ascends,The Books of Babel,1,Josiah Bancroft,2.1,5.5,5.1,3.6,3.9,5.7,131372,448,4.16,Alex Griffith
+The Silver Ship and the Sea,Fremont's Children,1,Brenda Cooper,0,6,7,5.5,6,6,119600,400,3.71,Jenna Honsl
+Harry Potter and The Chamber of Secrets,Harry Potter,2,J.K. Rowling,8,2.3,8.5,9.5,9,8,85141,251,4.43,Alex Griffith
+Interview with the Vampire,The Vampire Chronicles,1,Anne Rice,1.5,2,4,5.5,3,7,103454,371,4,Kristen Merke
+Deadly Little Secret,Touch Series,1,Laurie Faria Stolarz,3,1,8.5,7.6,5.5,3.5,75348,252,3.86,Kristen Merke
+Like Water For Chocolate,Como agua par chocolat,1,Laura Esquival,2,2,9,6,6,4.4,66378,256,3.95,Kristen Merke
+Lullaby,Lullaby,1,Chuck Palahniuk,3,1,2.5,5.5,6.5,7,77740,260,3.73,Kristen Merke
+The Seven Deaths of Evelyn Hardcastle,Evelyn Hardcastle,1,Stuart Turton,3,3.5,6.7,3,4.8,4.4,129168,505,3.88,Kristen Merke
+Son of a Trickster,Trickster Series,1,Eden Robinson,4.5,2,7.4,5.5,4.5,6.3,100464,336,3.84,Kristen Merke
+Strange Practice,Dr. Greta Helsing Series,1,Vivian Shaw,4.5,3,9,5.9,7.3,5,96250,400,3.85,Kristen Merke
+This Dark Endeavor,Victor Frankenstien Series,1,Kenneth Oppel,1.8,2.9,2.3,4.3,4.3,5.2,114816,298,3.82,Kristen Merke
+The Forest of Hands and Teeth,The Forest of Hands and Teeth,1,Carrie Ryan,0,4.5,1.2,1.2,1.8,7.6,92690,310,3.6,Kristen Merke
+Damned,Damned Series,1,Chuck Palahniuk,3,6.4,3.2,0.75,4.8,4.78,76544,256,3.39,Kristen Merke
+Bioshock: Rapture,Bioshock,1,John Shirley,3.4,5,2.4,2.1,5,5,132756,432,4,Kristen Merke
+The Madman's Daughter,Madman's Daughter Series,1,Megan Shepard,1.5,4.3,9,2.87,6.7,5.4,125580,420,3.67,Kristen Merke
+The Court of Broken Knives,Empires of Dust,1,Anna Smith Spark,2.6,6.5,0.8,4.2,4,4.5,140530,470,3.46,Alex Griffith
+Harry Potter and The Prisoner of Azkaban,Harry Potter,3,J.K. Rowling,8,2.4,8.7,7.5,6,8,130065,435,4.57,Alex Griffith
+Harry Potter and The Goblet of Fire,Harry Potter,4,J.K. Rowling,8.1,2.4,8.2,7.4,7.7,8.3,219466,734,4.56,Alex Griffith
+Soulsmith,Cradle,2,Will Wight,8,7.1,9.5,8.3,7.6,7,86534,286,4.36,Alex Griffith
+Blackflame,Cradle,3,Will Wight,8.3,7.3,8.9,8.3,8.2,7.6,111484,370,4.53,Alex Griffith
+Skysworn,Cradle,4,Will Wight,8.4,7.3,8.7,8.2,7.7,7.4,86760,292,4.41,Alex Griffith
+Ghostwater,Cradle,5,Will Wight,8.6,7.5,9.2,8.5,7.4,7.8,90870,310,4.57,Alex Griffith
+Underlord,Cradle,6,Will Wight,8.6,7.5,9.1,8.6,7.6,7.6,103130,308,4.63,Alex Griffith
+Uncrowned,Cradle,7,Will Wight,8.8,7.6,8.2,8.6,7.9,8.6,107520,336,4.54,Alex Griffith
+Wintersteel,Cradle,8,Will Wight,9.1,7.6,8,8,7.3,9.2,161460,540,4.73,Alex Griffith
+The Wise Man's Fear,The Kingkiller Chronicles,2,Patrick Rothfuss,7.6,8.1,6.1,6.3,7.7,7.7,297206,994,4.54,Alex Griffith
+Words of Radiance,The Stormlight Archive,2,Brandon Sanderson,7.2,8.5,7.2,7.5,7.2,7.8,325013,1087,4.74,Alex Griffith
+Oathbringer,The Stormlight Archive,3,Brandon Sanderson,7.4,8.6,8.2,7.4,7.4,7.5,373152,1243,4.58,Alex Griffith
+Flash Boys: A Wall Street Revolt,Flash Boys,1,Michael Lewis,0,0,7.8,5.8,6,4,90896,304,4.13,Alex Griffith
+Proven Guilty,The Dresden Files,8,Jim Butcher,8.4,5.6,7.8,4.3,4.3,6.8,163553,547,4.37,Alex Griffith
+White Night,The Dresden Files,9,Jim Butcher,8.4,2.4,6.8,4.7,5.5,6.4,121693,407,4.37,Alex Griffith
+Cold Days,The Dresden Files,14,Jim Butcher,8.2,2.5,5.6,4.8,6.2,6.5,153985,515,4.45,Alex Griffith
+Ghost Story,The Dresden Files,13,Jim Butcher,8,2.5,5,4,5.4,5.7,143819,481,4.25,Alex Griffith
+Changes,The Dresden Files,12,Jim Butcher,8.6,3.1,7.9,3.8,3.8,7.1,130962,438,4.5,Alex Griffith
+Skin Game,The Dresden Files,15,Jim Butcher,8.8,6.3,4.5,4.1,5.7,7.9,135746,454,4.56,Alex Griffith
+Blood of Elves,The Witcher,1,Andrzej Sapkowski,5.4,9,7,4,4,6,119002,420,4.1,Alex Griffith

@@ -40,6 +40,7 @@ class Graphical_UI(tk.Frame):
 
         self.book = tk.StringVar(self.top)
         self.series = tk.StringVar(self.top)
+        self.series_number = tk.IntVar(self.top)
         self.author = tk.StringVar(self.top)
         self.magic = tk.DoubleVar(self.top)
         self.fantasy = tk.DoubleVar(self.top)
@@ -50,6 +51,7 @@ class Graphical_UI(tk.Frame):
         self.word_count = tk.IntVar(self.top)
         self.page_count = tk.IntVar(self.top)
         self.goodreads = tk.DoubleVar(self.top)
+        self.added_by = tk.StringVar(self.top)
 
         self.create_widgets(AXES)
 
@@ -81,10 +83,10 @@ class Graphical_UI(tk.Frame):
 
             if self.three_axis_graph.get() == 1:
                 graph = px.scatter_3d(df, x=self.axis_one.get(), y=self.axis_two.get(), z=self.axis_three.get(),
-                                      color=self.colour.get(), hover_name='Book', hover_data=['Author', 'Series'], template="plotly_dark")
+                                      color=self.colour.get(), hover_name='Book', hover_data=['Author', 'Series', 'Series Number'], template="plotly_dark")
             else:
                 graph = px.scatter(df, x=self.axis_one.get(), y=self.axis_two.get(), color=self.colour.get(),
-                                   hover_name='Book', hover_data=['Author', 'Series'], template="plotly_dark")
+                                   hover_name='Book', hover_data=['Author', 'Series', 'Series Number'], template="plotly_dark")
 
             graph.show()
 
@@ -107,33 +109,37 @@ class Graphical_UI(tk.Frame):
         def insert_new_book():
             self.top = tk.Toplevel(root)
             self.top.title("Add A New Book")
-            self.top.geometry("355x390")
+            self.top.geometry("355x400")
 
             tk.Label(self.top, text="Book Name: ", padx=5, pady=5).grid(row=0, column=0)
             tk.Label(self.top, text="Series: ", padx=5, pady=5).grid(row=1, column=0)
-            tk.Label(self.top, text="Author: ", padx=5, pady=5).grid(row=2, column=0)
-            tk.Label(self.top, text="Low Magic - High Magic [0-10]: ", padx=5, pady=5).grid(row=3, column=0)
-            tk.Label(self.top, text="Low Fantasy - High Fantasy [0-10]: ", padx=5, pady=5).grid(row=4, column=0)
-            tk.Label(self.top, text="Characters are... Grim - Noble [0-10]: ", padx=5, pady=5).grid(row=5, column=0)
-            tk.Label(self.top, text="World is... Dark - Bright [0-10]: ", padx=5, pady=5).grid(row=6, column=0)
-            tk.Label(self.top, text="It made me feel... Sad - Happy [0-10]: ", padx=5, pady=5).grid(row=7, column=0)
-            tk.Label(self.top, text="It made me... Calm - Passionate [0-10]: ", padx=5, pady=5).grid(row=8, column=0)
-            tk.Label(self.top, text="Word Count: ", padx=5, pady=5).grid(row=9, column=0)
-            tk.Label(self.top, text="Page Count: ", padx=5, pady=5).grid(row=10, column=0)
-            tk.Label(self.top, text="Goodreads [0-5]: ", padx=5, pady=5).grid(row=11, column=0)
+            tk.Label(self.top, text="Series Number: ", padx=5, pady=5).grid(row=2, column=0)
+            tk.Label(self.top, text="Author: ", padx=5, pady=5).grid(row=3, column=0)
+            tk.Label(self.top, text="Low Magic - High Magic [0-10]: ", padx=5, pady=5).grid(row=4, column=0)
+            tk.Label(self.top, text="Low Fantasy - High Fantasy [0-10]: ", padx=5, pady=5).grid(row=5, column=0)
+            tk.Label(self.top, text="Characters are... Grim - Noble [0-10]: ", padx=5, pady=5).grid(row=6, column=0)
+            tk.Label(self.top, text="World is... Dark - Bright [0-10]: ", padx=5, pady=5).grid(row=7, column=0)
+            tk.Label(self.top, text="It made me feel... Sad - Happy [0-10]: ", padx=5, pady=5).grid(row=8, column=0)
+            tk.Label(self.top, text="It made me... Calm - Passionate [0-10]: ", padx=5, pady=5).grid(row=9, column=0)
+            tk.Label(self.top, text="Word Count: ", padx=5, pady=5).grid(row=10, column=0)
+            tk.Label(self.top, text="Page Count: ", padx=5, pady=5).grid(row=11, column=0)
+            tk.Label(self.top, text="Goodreads [0-5]: ", padx=5, pady=5).grid(row=12, column=0)
+            tk.Label(self.top, text="Added By: ", padx=5, pady=5).grid(row=13, column=0)
 
             tk.Entry(self.top, textvariable=self.book).grid(row=0, column=1)
             tk.Entry(self.top, textvariable=self.series).grid(row=1, column=1)
-            tk.Entry(self.top, textvariable=self.author).grid(row=2, column=1)
-            tk.Entry(self.top, textvariable=self.magic).grid(row=3, column=1)
-            tk.Entry(self.top, textvariable=self.fantasy).grid(row=4, column=1)
-            tk.Entry(self.top, textvariable=self.grim_noble).grid(row=5, column=1)
-            tk.Entry(self.top, textvariable=self.dark_bright).grid(row=6, column=1)
-            tk.Entry(self.top, textvariable=self.sad_happy).grid(row=7, column=1)
-            tk.Entry(self.top, textvariable=self.calm_passionate).grid(row=8, column=1)
-            tk.Entry(self.top, textvariable=self.word_count).grid(row=9, column=1)
-            tk.Entry(self.top, textvariable=self.page_count).grid(row=10, column=1)
-            tk.Entry(self.top, textvariable=self.goodreads).grid(row=11, column=1)
+            tk.Entry(self.top, textvariable=self.series_number).grid(row=2, column=1)
+            tk.Entry(self.top, textvariable=self.author).grid(row=3, column=1)
+            tk.Entry(self.top, textvariable=self.magic).grid(row=4, column=1)
+            tk.Entry(self.top, textvariable=self.fantasy).grid(row=5, column=1)
+            tk.Entry(self.top, textvariable=self.grim_noble).grid(row=6, column=1)
+            tk.Entry(self.top, textvariable=self.dark_bright).grid(row=7, column=1)
+            tk.Entry(self.top, textvariable=self.sad_happy).grid(row=8, column=1)
+            tk.Entry(self.top, textvariable=self.calm_passionate).grid(row=9, column=1)
+            tk.Entry(self.top, textvariable=self.word_count).grid(row=10, column=1)
+            tk.Entry(self.top, textvariable=self.page_count).grid(row=11, column=1)
+            tk.Entry(self.top, textvariable=self.goodreads).grid(row=12, column=1)
+            tk.Entry(self.top, textvariable=self.added_by).grid(row=13, column=1)
 
             tk.Button(self.top, text="Submit", padx=5, pady=5,
                       command=lambda: submit_new_book()).grid(row=12, column=0, columnspan=2)

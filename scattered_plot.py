@@ -51,6 +51,7 @@ class Graphical_UI(tk.Frame):
         self.word_count = tk.IntVar(self.top)
         self.page_count = tk.IntVar(self.top)
         self.goodreads = tk.DoubleVar(self.top)
+        self.published = tk.IntVar(self.top)
         self.added_by = tk.StringVar(self.top)
 
         self.create_widgets(AXES)
@@ -67,10 +68,10 @@ class Graphical_UI(tk.Frame):
         tk.OptionMenu(self.frame, self.axis_three, *AXES).grid(row=3, column=1)
         tk.OptionMenu(self.frame, self.colour, *AXES).grid(row=4, column=1)
 
-        tk.Label(self.frame, text="Axis One Data: ", padx=5, pady=5).grid(row=0, column=0)
-        tk.Label(self.frame, text="Axis Two Data: ", padx=5, pady=5).grid(row=1, column=0)
+        tk.Label(self.frame, text="X Axis Data: ", padx=5, pady=5).grid(row=0, column=0)
+        tk.Label(self.frame, text="Y Axis Data: ", padx=5, pady=5).grid(row=1, column=0)
         tk.Label(self.frame, text="Graph Third Axis", padx=5, pady=5).grid(row=2, column=0)
-        tk.Label(self.frame, text="Axis Three Data: ", padx=5, pady=5).grid(row=3, column=0)
+        tk.Label(self.frame, text="Z Axis Data: ", padx=5, pady=5).grid(row=3, column=0)
         tk.Label(self.frame, text="Colour Gradient Data: ", padx=5, pady=5).grid(row=4, column=0)
 
         tk.Button(self.master, text="Generate graph", padx=5, pady=5,
@@ -99,7 +100,7 @@ class Graphical_UI(tk.Frame):
             df.loc[len(df.index)] = [self.book.get(), self.series.get(), self.author.get(), self.magic.get(),
                                      self.fantasy.get(), self.grim_noble.get(), self.dark_bright.get(),
                                      self.sad_happy.get(), self.calm_passionate.get(), self.word_count.get(),
-                                     self.page_count.get(), self.goodreads.get()]
+                                     self.page_count.get(), self.goodreads.get(), self.published.get(), self.added_by.get()]
             df.to_csv('dataset/books.csv', index=False)
 
         def submit_new_book():
@@ -109,7 +110,7 @@ class Graphical_UI(tk.Frame):
         def insert_new_book():
             self.top = tk.Toplevel(root)
             self.top.title("Add A New Book")
-            self.top.geometry("355x400")
+            self.top.geometry("355x480")
 
             tk.Label(self.top, text="Book Name: ", padx=5, pady=5).grid(row=0, column=0)
             tk.Label(self.top, text="Series: ", padx=5, pady=5).grid(row=1, column=0)
@@ -124,7 +125,8 @@ class Graphical_UI(tk.Frame):
             tk.Label(self.top, text="Word Count: ", padx=5, pady=5).grid(row=10, column=0)
             tk.Label(self.top, text="Page Count: ", padx=5, pady=5).grid(row=11, column=0)
             tk.Label(self.top, text="Goodreads [0-5]: ", padx=5, pady=5).grid(row=12, column=0)
-            tk.Label(self.top, text="Added By: ", padx=5, pady=5).grid(row=13, column=0)
+            tk.Label(self.top, text="Year Published:", padx=5, pady=5).grid(row=13, column=0)
+            tk.Label(self.top, text="Added By: ", padx=5, pady=5).grid(row=14, column=0)
 
             tk.Entry(self.top, textvariable=self.book).grid(row=0, column=1)
             tk.Entry(self.top, textvariable=self.series).grid(row=1, column=1)
@@ -139,10 +141,11 @@ class Graphical_UI(tk.Frame):
             tk.Entry(self.top, textvariable=self.word_count).grid(row=10, column=1)
             tk.Entry(self.top, textvariable=self.page_count).grid(row=11, column=1)
             tk.Entry(self.top, textvariable=self.goodreads).grid(row=12, column=1)
-            tk.Entry(self.top, textvariable=self.added_by).grid(row=13, column=1)
+            tk.Entry(self.top, textvariable=self.published).grid(row=13, column=1)
+            tk.Entry(self.top, textvariable=self.added_by).grid(row=14, column=1)
 
             tk.Button(self.top, text="Submit", padx=5, pady=5,
-                      command=lambda: submit_new_book()).grid(row=12, column=0, columnspan=2)
+                      command=lambda: submit_new_book()).grid(row=15, column=0, columnspan=2)
 
 
 root = tk.Tk()

@@ -1,7 +1,7 @@
 """
 Project: Scattered Plot
 Author: Alex Griffith
-Date: Jan. 13th, 2022
+Date: July 07, 2022
 Description: A small gui for making 2d and 3d graphs of book data, on variable axes.
 """
 import urllib
@@ -27,7 +27,7 @@ class Linear_Regression:
         B0 = y_mean - (B1 * x_mean)
 
         # formatting reg line
-        reg_line = 'y = {} + {}β'.format(B0, round(B1, 3))
+        reg_line = 'y = {} + {}β'.format(round(B0, 3), round(B1, 3))
 
         return B0, B1, reg_line
 
@@ -43,18 +43,19 @@ class Linear_Regression:
     def start(data, x_name, y_name):
         x = data[x_name]
         y = data[y_name]
-        print('\nX Axis: ', x_name)
-        print('Y Axis: ', y_name)
-        print('Number of Data Points: ', len(x), '\n')
+
+        annotation = str('Number of Data Points: ' + str(len(x)))
         try:
             B0, B1, reg_line = Linear_Regression.linear_regression(x, y)
             R = Linear_Regression.corr_coef(x, y)
 
-            print('Regression Line: ', reg_line)
-            print('Correlation Coefficient: ', R)
-            print('Goodness of Fit: ', R ** 2)
-        except (ZeroDivisionError, TypeError) as e:
-            print("Cannot Calculate Linear Regression Without Numerical Columns")
+            annotation += str('<br>Regression Line: ' + reg_line)
+            annotation += str('<br>Correlation Coefficient: ' + str(round(R, 3)))
+            annotation += str('<br>Goodness of Fit: ' + str(round(R ** 2, 3)))
+        except (ZeroDivisionError, TypeError):
+            annotation += "<br>Cannot Calculate Linear Regression Without Numerical Columns"
+
+        return annotation
 
 
 class Graphical_UI(tk.Frame):
@@ -62,7 +63,7 @@ class Graphical_UI(tk.Frame):
     Class that generates a GUI for easier use and entering of options.
     """
 
-    df = None
+    df: pd.DataFrame = None
 
     def __init__(self, master=None):
         """
@@ -124,24 +125,24 @@ class Graphical_UI(tk.Frame):
         tk.Label(self.frame, text="Colour Gradient Data: ", padx=5, pady=5).grid(row=4, column=0)
 
         tk.Button(self.master, text="Generate graph", padx=5, pady=5,
-                  command=lambda: generate_graph()).grid(row=5, column=0, columnspan=1)
-        tk.Button(self.master, text="Add New Book", padx=5, pady=5,
-                  command=lambda: insert_new_book()).grid(row=5, column=1, columnspan=1)
+                  command=lambda: generate_graph()).grid(row=5, column=1, columnspan=1)
 
         def generate_graph():
             df = get_book_data()
-
             if self.three_axis_graph.get() == 1:
                 graph = px.scatter_3d(df, x=self.axis_one.get(), y=self.axis_two.get(), z=self.axis_three.get(),
                                       color=self.colour.get(), hover_name='Book',
                                       hover_data=['Author', 'Series', 'Series Number'], template="plotly_dark")
+
             else:
                 graph = px.scatter(df, x=self.axis_one.get(), y=self.axis_two.get(), color=self.colour.get(),
                                    hover_name='Book', hover_data=['Author', 'Series', 'Series Number'],
                                    template="plotly_dark")
-                # A two axis graph will also plot the linear regression
-                Linear_Regression.start(df, self.axis_one.get(), self.axis_two.get())
 
+                # A two axis graph will also plot the linear regression
+                annotation = Linear_Regression.start(df, self.axis_one.get(), self.axis_two.get())
+                graph.add_annotation(showarrow=False, xanchor="left", yanchor="top", xref="paper", yref="paper", x=0.05,
+                                     y=0.95, text=annotation, align="left")
             graph.show()
 
         def get_book_data():
@@ -149,71 +150,21 @@ class Graphical_UI(tk.Frame):
                 return self.df
             try:
                 url = "https://docs.google.com/spreadsheets/d/18bKBAJkIEXZEw0K-nC2re8Zav2TOFV0rfPLW3j7OjHo/export?gid" \
-                      "=280213473&format=csv "
+                      "=280213473&format=csv"
                 print('Connecting to: ', url)
                 df = pd.read_csv(url)
                 print('Data Received.')
-                write_book_data(df)
+                self.df = df
+                write_book_data()
                 print('Offline data has been updated.')
-            except urllib.error.URLError as e:
+            except urllib.error.URLError:
                 print('Cannot connect to live data, using most recent stored data.\n')
-                df = pd.read_csv('dataset/books.csv')
+                df = pd.read_csv('dataset/books.csv', )
 
-            self.df = df
             return df
 
-        def write_book_data(df):
-            df.loc[len(df.index)] = [self.book.get(), self.series.get(), self.series_number.get(), self.author.get(),
-                                     self.magic.get(),
-                                     self.fantasy.get(), self.grim_noble.get(), self.dark_bright.get(),
-                                     self.sad_happy.get(), self.calm_passionate.get(), self.word_count.get(),
-                                     self.page_count.get(), self.goodreads.get(), self.published.get(),
-                                     self.added_by.get()]
-            df.to_csv('dataset/books.csv', index=False)
-
-        def submit_new_book():
-            write_book_data(get_book_data())
-            self.top.destroy()
-
-        def insert_new_book():
-            self.top = tk.Toplevel(root)
-            self.top.title("Add A New Book")
-            self.top.geometry("355x480")
-
-            tk.Label(self.top, text="Book Name: ", padx=5, pady=5).grid(row=0, column=0)
-            tk.Label(self.top, text="Series: ", padx=5, pady=5).grid(row=1, column=0)
-            tk.Label(self.top, text="Series Number: ", padx=5, pady=5).grid(row=2, column=0)
-            tk.Label(self.top, text="Author: ", padx=5, pady=5).grid(row=3, column=0)
-            tk.Label(self.top, text="Low Magic - High Magic [0-10]: ", padx=5, pady=5).grid(row=4, column=0)
-            tk.Label(self.top, text="Low Fantasy - High Fantasy [0-10]: ", padx=5, pady=5).grid(row=5, column=0)
-            tk.Label(self.top, text="Characters are... Grim - Noble [0-10]: ", padx=5, pady=5).grid(row=6, column=0)
-            tk.Label(self.top, text="World is... Dark - Bright [0-10]: ", padx=5, pady=5).grid(row=7, column=0)
-            tk.Label(self.top, text="It made me feel... Sad - Happy [0-10]: ", padx=5, pady=5).grid(row=8, column=0)
-            tk.Label(self.top, text="It made me... Calm - Passionate [0-10]: ", padx=5, pady=5).grid(row=9, column=0)
-            tk.Label(self.top, text="Word Count: ", padx=5, pady=5).grid(row=10, column=0)
-            tk.Label(self.top, text="Page Count: ", padx=5, pady=5).grid(row=11, column=0)
-            tk.Label(self.top, text="Goodreads [0-5]: ", padx=5, pady=5).grid(row=12, column=0)
-            tk.Label(self.top, text="Year Published:", padx=5, pady=5).grid(row=13, column=0)
-            tk.Label(self.top, text="Added By: ", padx=5, pady=5).grid(row=14, column=0)
-
-            tk.Entry(self.top, textvariable=self.book).grid(row=0, column=1)
-            tk.Entry(self.top, textvariable=self.series).grid(row=1, column=1)
-            tk.Entry(self.top, textvariable=self.series_number).grid(row=2, column=1)
-            tk.Entry(self.top, textvariable=self.author).grid(row=3, column=1)
-            tk.Entry(self.top, textvariable=self.magic).grid(row=4, column=1)
-            tk.Entry(self.top, textvariable=self.fantasy).grid(row=5, column=1)
-            tk.Entry(self.top, textvariable=self.grim_noble).grid(row=6, column=1)
-            tk.Entry(self.top, textvariable=self.dark_bright).grid(row=7, column=1)
-            tk.Entry(self.top, textvariable=self.sad_happy).grid(row=8, column=1)
-            tk.Entry(self.top, textvariable=self.calm_passionate).grid(row=9, column=1)
-            tk.Entry(self.top, textvariable=self.word_count).grid(row=10, column=1)
-            tk.Entry(self.top, textvariable=self.page_count).grid(row=11, column=1)
-            tk.Entry(self.top, textvariable=self.goodreads).grid(row=12, column=1)
-            tk.Entry(self.top, textvariable=self.published).grid(row=13, column=1)
-            tk.Entry(self.top, textvariable=self.added_by).grid(row=14, column=1)
-
-            tk.Button(self.top, text="Submit", padx=5, pady=5,
-                      command=lambda: submit_new_book()).grid(row=15, column=0, columnspan=2)
+        def write_book_data():
+            self.df.to_csv('dataset/books.csv', index=False)
 
 
 root = tk.Tk()

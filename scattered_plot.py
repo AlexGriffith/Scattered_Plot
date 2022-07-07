@@ -2,17 +2,17 @@
 Project: Scattered Plot
 Author: Alex Griffith
 Date: Jan. 13th, 2022
-Description: A small gui for making 3d graphs of book data, on variable axes.
+Description: A small gui for making 2d and 3d graphs of book data, on variable axes.
 """
+import urllib
 
 import plotly.express as px
 import pandas as pd
 import tkinter as tk
 import numpy as np
-import matplotlib.pyplot as plt
 
 
-class Linear_Regression():
+class Linear_Regression:
     def linear_regression(x, y):
         N = len(x)  # How many data points there are
         x_mean = x.mean()  # X mean
@@ -29,7 +29,7 @@ class Linear_Regression():
         # formatting reg line
         reg_line = 'y = {} + {}β'.format(B0, round(B1, 3))
 
-        return (B0, B1, reg_line)
+        return B0, B1, reg_line
 
     def corr_coef(x, y):
         """Calculate the co-efficient of determination, or how well the linear regression line fits the data"""
@@ -43,8 +43,9 @@ class Linear_Regression():
     def start(data, x_name, y_name):
         x = data[x_name]
         y = data[y_name]
-
-        print(data.head())
+        print('\nX Axis: ', x_name)
+        print('Y Axis: ', y_name)
+        print('Number of Data Points: ', len(x), '\n')
         try:
             B0, B1, reg_line = Linear_Regression.linear_regression(x, y)
             R = Linear_Regression.corr_coef(x, y)
@@ -53,7 +54,7 @@ class Linear_Regression():
             print('Correlation Coefficient: ', R)
             print('Goodness of Fit: ', R ** 2)
         except (ZeroDivisionError, TypeError) as e:
-            print("Cannot calculate Linear Regression without numerical columns")
+            print("Cannot Calculate Linear Regression Without Numerical Columns")
 
 
 class Graphical_UI(tk.Frame):
@@ -61,10 +62,12 @@ class Graphical_UI(tk.Frame):
     Class that generates a GUI for easier use and entering of options.
     """
 
+    df = None
+
     def __init__(self, master=None):
         """
         Creates all the initial parameters for the listbox.
-        Binds the 'Return' key to generating a new set of NPC's based on the current input parameters.
+        Binds the 'Return' key to generating a new graph based on the current input parameters.
         :param master: the root of the window
         """
         super().__init__(master)
@@ -137,18 +140,31 @@ class Graphical_UI(tk.Frame):
                                    hover_name='Book', hover_data=['Author', 'Series', 'Series Number'],
                                    template="plotly_dark")
                 # A two axis graph will also plot the linear regression
-                print(self.axis_one.get())
                 Linear_Regression.start(df, self.axis_one.get(), self.axis_two.get())
 
             graph.show()
 
         def get_book_data():
-            df = pd.read_csv('dataset/books.csv')
+            if self.df is not None:
+                return self.df
+            try:
+                url = "https://docs.google.com/spreadsheets/d/18bKBAJkIEXZEw0K-nC2re8Zav2TOFV0rfPLW3j7OjHo/export?gid" \
+                      "=280213473&format=csv "
+                print('Connecting to: ', url)
+                df = pd.read_csv(url)
+                print('Data Received.')
+                write_book_data(df)
+                print('Offline data has been updated.')
+            except urllib.error.URLError as e:
+                print('Cannot connect to live data, using most recent stored data.\n')
+                df = pd.read_csv('dataset/books.csv')
+
+            self.df = df
             return df
 
-        def write_book_data():
-            df = get_book_data()
-            df.loc[len(df.index)] = [self.book.get(), self.series.get(), self.author.get(), self.magic.get(),
+        def write_book_data(df):
+            df.loc[len(df.index)] = [self.book.get(), self.series.get(), self.series_number.get(), self.author.get(),
+                                     self.magic.get(),
                                      self.fantasy.get(), self.grim_noble.get(), self.dark_bright.get(),
                                      self.sad_happy.get(), self.calm_passionate.get(), self.word_count.get(),
                                      self.page_count.get(), self.goodreads.get(), self.published.get(),
@@ -156,7 +172,7 @@ class Graphical_UI(tk.Frame):
             df.to_csv('dataset/books.csv', index=False)
 
         def submit_new_book():
-            write_book_data()
+            write_book_data(get_book_data())
             self.top.destroy()
 
         def insert_new_book():

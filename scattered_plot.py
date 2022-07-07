@@ -27,7 +27,7 @@ class Linear_Regression:
         B0 = y_mean - (B1 * x_mean)
 
         # formatting reg line
-        reg_line = 'y = {} + {}β'.format(round(B0, 3), round(B1, 3))
+        reg_line = 'y = {} + {}β'.format(round(B0, 3), round(B1, 2))
 
         return B0, B1, reg_line
 
@@ -43,17 +43,26 @@ class Linear_Regression:
     def start(data, x_name, y_name):
         x = data[x_name]
         y = data[y_name]
+        annotation = 'Number of Data Points: ' + str(len(x))
 
-        annotation = str('Number of Data Points: ' + str(len(x)))
+        try:
+            annotation += '<br>' + x_name + ' Average: ' + str(round(x.mean(), 2))
+        except TypeError:
+            pass
+        try:
+            annotation += '<br>' + y_name + ' Average: ' + str(round(y.mean(), 2))
+        except TypeError:
+            pass
         try:
             B0, B1, reg_line = Linear_Regression.linear_regression(x, y)
             R = Linear_Regression.corr_coef(x, y)
 
-            annotation += str('<br>Regression Line: ' + reg_line)
-            annotation += str('<br>Correlation Coefficient: ' + str(round(R, 3)))
-            annotation += str('<br>Goodness of Fit: ' + str(round(R ** 2, 3)))
+            annotation += '<br>Regression Line: ' + reg_line
+            annotation += '<br>Correlation Coefficient: ' + str(round(R, 3))
+            annotation += '<br>Goodness of Fit: ' + str(round(R ** 2, 3))
         except (ZeroDivisionError, TypeError):
-            annotation += "<br>Cannot Calculate Linear Regression Without Numerical Columns"
+            # Will occur when 3d graphs or non-numeric columns are attempted to be calculated.
+            pass
 
         return annotation
 
@@ -134,6 +143,25 @@ class Graphical_UI(tk.Frame):
                                       color=self.colour.get(), hover_name='Book',
                                       hover_data=['Author', 'Series', 'Series Number'], template="plotly_dark")
 
+                x = df[self.axis_one.get()]
+                y = df[self.axis_two.get()]
+                z = df[self.axis_three.get()]
+                annotation = 'Number of Data Points: ' + str(x.size)
+                try:
+                    annotation += '<br>' + self.axis_one.get() + ' Average: ' + str(round(x.mean(), 2))
+                except TypeError:
+                    pass
+                try:
+                    annotation += '<br>' + self.axis_two.get() + ' Average: ' + str(round(y.mean(), 2))
+                except TypeError:
+                    pass
+                try:
+                    annotation += '<br>' + self.axis_three.get() + ' Average: ' + str(round(z.mean(), 2))
+                except TypeError:
+                    pass
+                # Add data for all the ones that passed.
+                graph.add_annotation(showarrow=False, xanchor="left", yanchor="top", xref="paper", yref="paper", x=0.05,
+                                     y=0.95, text=annotation, align="left")
             else:
                 graph = px.scatter(df, x=self.axis_one.get(), y=self.axis_two.get(), color=self.colour.get(),
                                    hover_name='Book', hover_data=['Author', 'Series', 'Series Number'],

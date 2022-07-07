@@ -8,6 +8,52 @@ Description: A small gui for making 3d graphs of book data, on variable axes.
 import plotly.express as px
 import pandas as pd
 import tkinter as tk
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+class Linear_Regression():
+    def linear_regression(x, y):
+        N = len(x)  # How many data points there are
+        x_mean = x.mean()  # X mean
+        y_mean = y.mean()  # Y mean
+
+        # Calculate slope of reg line
+        B1_num = ((x - x_mean) * (y - y_mean)).sum()
+        B1_den = ((x - x_mean) ** 2).sum()
+        B1 = B1_num / B1_den
+
+        # Calculate intercept of reg line
+        B0 = y_mean - (B1 * x_mean)
+
+        # formatting reg line
+        reg_line = 'y = {} + {}β'.format(B0, round(B1, 3))
+
+        return (B0, B1, reg_line)
+
+    def corr_coef(x, y):
+        """Calculate the co-efficient of determination, or how well the linear regression line fits the data"""
+        N = len(x)
+
+        num = (N * (x * y).sum()) - (x.sum() * y.sum())
+        den = np.sqrt((N * (x ** 2).sum() - x.sum() ** 2) * (N * (y ** 2).sum() - y.sum() ** 2))
+        R = num / den
+        return R
+
+    def start(data, x_name, y_name):
+        x = data[x_name]
+        y = data[y_name]
+
+        print(data.head())
+        try:
+            B0, B1, reg_line = Linear_Regression.linear_regression(x, y)
+            R = Linear_Regression.corr_coef(x, y)
+
+            print('Regression Line: ', reg_line)
+            print('Correlation Coefficient: ', R)
+            print('Goodness of Fit: ', R ** 2)
+        except (ZeroDivisionError, TypeError) as e:
+            print("Cannot calculate Linear Regression without numerical columns")
 
 
 class Graphical_UI(tk.Frame):
@@ -84,10 +130,15 @@ class Graphical_UI(tk.Frame):
 
             if self.three_axis_graph.get() == 1:
                 graph = px.scatter_3d(df, x=self.axis_one.get(), y=self.axis_two.get(), z=self.axis_three.get(),
-                                      color=self.colour.get(), hover_name='Book', hover_data=['Author', 'Series', 'Series Number'], template="plotly_dark")
+                                      color=self.colour.get(), hover_name='Book',
+                                      hover_data=['Author', 'Series', 'Series Number'], template="plotly_dark")
             else:
                 graph = px.scatter(df, x=self.axis_one.get(), y=self.axis_two.get(), color=self.colour.get(),
-                                   hover_name='Book', hover_data=['Author', 'Series', 'Series Number'], template="plotly_dark")
+                                   hover_name='Book', hover_data=['Author', 'Series', 'Series Number'],
+                                   template="plotly_dark")
+                # A two axis graph will also plot the linear regression
+                print(self.axis_one.get())
+                Linear_Regression.start(df, self.axis_one.get(), self.axis_two.get())
 
             graph.show()
 
@@ -100,7 +151,8 @@ class Graphical_UI(tk.Frame):
             df.loc[len(df.index)] = [self.book.get(), self.series.get(), self.author.get(), self.magic.get(),
                                      self.fantasy.get(), self.grim_noble.get(), self.dark_bright.get(),
                                      self.sad_happy.get(), self.calm_passionate.get(), self.word_count.get(),
-                                     self.page_count.get(), self.goodreads.get(), self.published.get(), self.added_by.get()]
+                                     self.page_count.get(), self.goodreads.get(), self.published.get(),
+                                     self.added_by.get()]
             df.to_csv('dataset/books.csv', index=False)
 
         def submit_new_book():

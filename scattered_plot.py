@@ -11,6 +11,7 @@ import pandas as pd
 import tkinter as tk
 import numpy as np
 
+
 class Linear_Regression:
     def linear_regression(x, y):
         N = len(x)  # How many data points there are
@@ -59,11 +60,12 @@ class Linear_Regression:
             annotation += '<br>Regression Line: ' + reg_line
             annotation += '<br>Correlation Coefficient: ' + str(round(R, 3))
             annotation += '<br>Goodness of Fit: ' + str(round(R ** 2, 3))
+            return [annotation, B1, B0]
         except (ZeroDivisionError, TypeError):
             # Will occur when 3d graphs or non-numeric columns are attempted to be calculated.
             pass
 
-        return annotation, B1, B0
+        return [annotation]
 
 
 class Graphical_UI(tk.Frame):
@@ -166,16 +168,22 @@ class Graphical_UI(tk.Frame):
                                    hover_name='Book', hover_data=['Author', 'Series', 'Series Number'],
                                    template="plotly_dark")
 
-
                 # A two axis graph will also plot the linear regression
-                annotation, B1, B0 = Linear_Regression.start(df, self.axis_one.get(), self.axis_two.get())
+                lin_reg = Linear_Regression.start(df, self.axis_one.get(), self.axis_two.get())
+                annotation = lin_reg[0]
                 graph.add_annotation(showarrow=False, xanchor="left", yanchor="top", xref="paper", yref="paper", x=0.05,
                                      y=0.95, text=annotation, align="left")
-                maximums = df.max()
-                minimums = df.min()
-                x_max = maximums[self.axis_one.get()]
-                x_min = minimums[self.axis_one.get()]
-                graph.add_shape(type="line", xref="x", yref="y", x0=x_min, y0=B1*x_min+B0, x1=x_max, y1=B1*x_max+B0, line=dict(color="LightGrey", width=3))
+                try:
+                    B0 = lin_reg[2]
+                    B1 = lin_reg[1]
+                    maximums = df.max()
+                    minimums = df.min()
+                    x_max = maximums[self.axis_one.get()]
+                    x_min = minimums[self.axis_one.get()]
+                    graph.add_shape(type="line", xref="x", yref="y", x0=x_min, y0=B1 * x_min + B0, x1=x_max,
+                                    y1=B1 * x_max + B0, line=dict(color="LightGrey", width=3))
+                except IndexError:
+                    pass
             graph.show()
 
         def get_book_data():
